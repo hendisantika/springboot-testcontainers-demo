@@ -38,4 +38,20 @@ class StudentRepositoryTest {
         Assertions.assertNotNull(savedStudent.getId());
 
     }
+
+    // JUnit for save student operation - BDD style
+    @Test
+    public void givenStudentId_whenFindbyId_thenReturnSavedStudent() {
+
+        // given - setup or precondition
+        Student student = Student.builder().firstName("Uzumaki")
+                .lastName("Naruto").email("naruto@gmail.com").build();
+        Student savedStudent = studentRepository.save(student);
+
+        // when - action or the testing
+        Student studentDB = studentRepository.findById(student.getId()).get();
+
+        // then - very output
+        Assertions.assertNotNull(studentDB);
+    }
 }
