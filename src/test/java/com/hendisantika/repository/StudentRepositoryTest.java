@@ -1,5 +1,8 @@
 package com.hendisantika.repository;
 
+import com.hendisantika.entity.Student;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -19,4 +22,20 @@ class StudentRepositoryTest {
     @Autowired
     private StudentRepository studentRepository;
 
+    // JUnit for save student operation - BDD style
+    @Test
+    public void givenStudentObject_whenSave_thenReturnSavedStudent() {
+
+        // given - setup or precondition
+        Student student = Student.builder().firstName("Uzumaki")
+                .lastName("Naruto").email("naruto@gmail.com").build();
+
+        // when - action or the testing
+        Student savedStudent = studentRepository.save(student);
+
+        // then - very output
+        Assertions.assertNotNull(savedStudent);
+        Assertions.assertNotNull(savedStudent.getId());
+
+    }
 }
