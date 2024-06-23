@@ -2,7 +2,7 @@
 
 ### Tools and technologies used
 
-1. Java 11+
+1. Java 21+
 2. Spring Boot
 3. Spring Data JPA
 4. MySQL

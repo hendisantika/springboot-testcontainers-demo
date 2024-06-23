@@ -15,7 +15,7 @@ public class AbstractContainerBaseTest {
     static final MySQLContainer MY_SQL_CONTAINER;
 
     static {
-        MY_SQL_CONTAINER = new MySQLContainer("mysql:latest");
+        MY_SQL_CONTAINER = new MySQLContainer("mysql:8.4.0");
 
         MY_SQL_CONTAINER.start();
     }
